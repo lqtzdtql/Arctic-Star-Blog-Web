@@ -1,0 +1,103 @@
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+.baseBtn {
+  @extend .hover;
+  height: 44px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  margin-right: 20px;
+  border-radius: 14px;
+  color: $textColor;
+  user-select: none;
+}
+
+.hiddenNav {
+  box-shadow: none !important;
+  transform: translate(0, -$navHeight);
+}
+
+.nav {
+  @extend .trans;
+  width: 100%;
+  height: $navHeight;
+  background-color: $themeColor1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  box-shadow: 0 0 18px $footerBg;
+
+  .navContent {
+    position: relative;
+    width: $centerWidth;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .homeBtn {
+      @extend .baseBtn;
+      position: absolute;
+      left: 0;
+      font-size: 26px;
+      width: 60px;
+      cursor: pointer;
+    }
+
+    .articlesBtn {
+      @extend .baseBtn;
+      position: relative;
+
+      .secondArticlesNav {
+        @extend .trans;
+        position: absolute;
+        top: -160px;
+        width: 90px;
+        height: 142px;
+        background-color: $themeColor1;
+        border-radius: 14px;
+        z-index: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .secondArticlesNavBtn {
+        @extend .hover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 18px;
+        height: 34px;
+        width: 70px;
+        border-radius: 10px;
+        user-select: none;
+        background-color: $themeColor2;
+        color: $textColor;
+      }
+
+      .activeSecondArticlesNavBtn {
+        background-color: $hoverColor;
+      }
+    }
+
+    .articlesBtn:hover .secondArticlesNav {
+      top: 60px;
+    }
+
+    .navBtn {
+      @extend .baseBtn;
+    }
+
+    .activeNavBtn {
+      background-color: $hoverColor;
+    }
+  }
+}

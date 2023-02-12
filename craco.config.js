@@ -1,33 +1,42 @@
 const path = require('path');
-const { name } = require('./package.json');
 
 const pathResolve = pathUrl => path.join(__dirname, pathUrl);
 
 module.exports = {
   reactScriptsVersion: 'react-scripts' /* (default value) */,
+  style: {
+    postcss: {
+      loaderOptions: {
+        postcssOptions: {
+          ident: 'postcss',
+          plugins: [
+            [
+              'postcss-pxtorem',
+              {
+                //根元素字体大小
+                rootValue: 16,
+                //匹配CSS中的属性，* 代表启用所有属性
+                propList: ['*'],
+                //转换成rem后保留的小数点位数
+                unitPrecision: 5,
+                //小于12px的样式不被替换成rem
+                minPixelValue: 12,
+                //忽略一些文件，不进行转换，比如我想忽略 依赖的UI框架
+                exclude: ['node_modules'],
+              },
+            ],
+          ],
+        },
+      },
+    },
+  },
   webpack: {
     alias: {
-      '@': pathResolve('src'),
-      '@assets': pathResolve('src/assets'),
-      '@components': pathResolve('src/components'),
-      '@constants': pathResolve('src/constants'),
-      '@containers': pathResolve('src/containers'),
-      '@hooks': pathResolve('src/hooks'),
-      '@mocks': pathResolve('src/mocks'),
-      '@routes': pathResolve('src/routes'),
-      '@services': pathResolve('src/services'),
-      '@styles': pathResolve('src/styles'),
-      '@types': pathResolve('src/types'),
-      '@utils': pathResolve('src/utils'),
-      '@contexts': pathResolve('src/contexts'),
+      '@/src': pathResolve('src'),
     },
     configure(webpackConfig) {
       // 配置扩展扩展名
       webpackConfig.resolve.extensions = [...webpackConfig.resolve.extensions, ...['.scss', '.css']];
-      // 接入微前端框架qiankun的配置,不接入微前端可以不需要
-      webpackConfig.output.library = `${name}-[name]`;
-      webpackConfig.output.libraryTarget = 'umd';
-      webpackConfig.output.globalObject = 'window';
       return webpackConfig;
     },
   },
