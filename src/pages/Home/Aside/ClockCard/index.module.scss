@@ -1,0 +1,100 @@
+@import '../../../../styles/base.scss';
+@import '../../../../styles/style.scss';
+
+.pointX {
+  position: absolute;
+  left: calc(50% - 1px);
+  width: 2px;
+  height: 18px;
+  background-color: $textColor;
+}
+
+.pointY {
+  position: absolute;
+  top: calc(50% - 1px);
+  height: 2px;
+  width: 18px;
+  background-color: $textColor;
+}
+
+.clockLineBase {
+  position: absolute;
+  transform-origin: bottom;
+  background-color: $textColor;
+  bottom: 0;
+}
+
+.clockCard {
+  @extend .card;
+  height: $asideWidth;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  .dial {
+    border: 2px solid $textColor;
+    width: $asideWidth - 2 * $space;
+    height: $asideWidth - 2 * $space;
+    border-radius: 50%;
+    background-color: $themeColor1;
+    position: absolute;
+
+    .zero {
+      @extend .pointX;
+      top: 0;
+    }
+    .six {
+      @extend .pointX;
+      bottom: 0;
+    }
+    .three {
+      @extend .pointY;
+      right: 0;
+    }
+    .nine {
+      @extend .pointY;
+      left: 0;
+    }
+  }
+
+  .container {
+    position: relative;
+
+    .dot {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      top: -6px;
+      left: -6px;
+      border-radius: 50%;
+      z-index: 4;
+      background-color: $hoverColor;
+    }
+
+    .clockMinuteLine {
+      @extend .clockLineBase;
+      width: 4px;
+      height: 90px;
+      border-radius: 2px;
+      left: -2px;
+    }
+
+    .clockHourLine {
+      @extend .clockLineBase;
+      width: 6px;
+      height: 60px;
+      border-radius: 3px;
+      left: -3px;
+    }
+
+    .clockSecondLine {
+      @extend .clockLineBase;
+      background-color: $hoverColor;
+      width: 2px;
+      height: 90px;
+      border-radius: 1px;
+      left: -1px;
+    }
+  }
+}

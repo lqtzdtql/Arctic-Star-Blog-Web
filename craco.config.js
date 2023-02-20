@@ -1,4 +1,5 @@
 const path = require('path');
+const { webpack } = require('webpack');
 
 const pathResolve = pathUrl => path.join(__dirname, pathUrl);
 
@@ -35,6 +36,10 @@ module.exports = {
       '@/src': pathResolve('src'),
     },
     configure(webpackConfig) {
+      webpackConfig.resolve.fallback = {
+        ...webpackConfig.resolve.fallback,
+        console: require.resolve('console-browserify'),
+      };
       // 配置扩展扩展名
       webpackConfig.resolve.extensions = [...webpackConfig.resolve.extensions, ...['.scss', '.css']];
       return webpackConfig;

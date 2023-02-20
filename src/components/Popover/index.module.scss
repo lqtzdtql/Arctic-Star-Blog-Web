@@ -1,0 +1,22 @@
+@import '../../styles/base.scss';
+
+.popover {
+  position: relative;
+
+  .content {
+    position: absolute;
+    top: calc(-120px - 1em);
+    left: -60px;
+    padding: $space;
+    border-radius: $bigRadius;
+  }
+
+  .children {
+    position: relative;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

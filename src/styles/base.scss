@@ -1,17 +1,29 @@
 // size
 $navHeight: 60px;
 $centerWidth: 1200px;
+$layoutWidth: 1000px;
+$topTitleHeight: 440px;
+$asideWidth: 260px;
+
+// 圆角
+$bigRadius: 20px;
+$midRadius: 12px;
+
+// 间距
+$space: 20px;
 
 // 按钮/字体高亮/hover
 $hoverColor: rgb(98, 164, 218);
 
 // color
 // 主色
-$themeColor: rgb(12, 29, 27);
+$themeColor: #2c2c4d;
 // 副色1
-$themeColor1: rgb(22, 54, 51);
+$themeColor1: #434574;
 // 副色2
-$themeColor2: rgb(39, 95, 89);
+$themeColor2: #8e7376;
+// 副色3
+$themeColor3: #6b586d;
 // 字体色
 $textColor: rgb(255, 255, 255);
 // App背景色

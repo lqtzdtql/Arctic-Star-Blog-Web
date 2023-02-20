@@ -1,0 +1,43 @@
+@import '../../../../styles/base.scss';
+@import '../../../../styles/style.scss';
+
+.noticeCard {
+  @extend .card;
+
+  .noticeData {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $themeColor1;
+    border-radius: $midRadius;
+    padding: 14px;
+
+    .notice {
+      font-size: 16px;
+      color: $textColor;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .dateBox {
+      position: relative;
+      height: 25px;
+      width: 100%;
+
+      .date {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: auto;
+        font-size: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $textColor;
+      }
+    }
+  }
+}

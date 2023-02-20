@@ -1,0 +1,13 @@
+@import '../../../../../styles/base.scss';
+@import '../../../../../styles/style.scss';
+
+.iconBtn {
+  color: $textColor;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $midRadius;
+  @extend .hover;
+}

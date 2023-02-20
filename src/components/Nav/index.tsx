@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { HomeOutlined } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined } from '@ant-design/icons';
 import { navList, secondArticlesNavList } from './config';
 import { useAppDispatch, useAppSelector } from '@/src/redux/hooks';
 import { setNavShow, navShow } from '@/src/redux/slices/navShowSlice';
@@ -23,7 +23,7 @@ const Nav: React.FC<any> = () => {
   );
 
   return (
-    <div className={classNames(s.nav, { [s.hiddenNav]: !navIsShow })}>
+    <nav className={classNames(s.nav, { [s.hiddenNav]: !navIsShow })}>
       <div className={s.navContent}>
         {/* 首页 */}
         <div
@@ -61,8 +61,17 @@ const Nav: React.FC<any> = () => {
             {item.name}
           </NavLink>
         ))}
+        {/* 个人后台 */}
+        <div
+          className={s.userBtn}
+          onClick={() => {
+            navigate('/user');
+          }}
+        >
+          <UserOutlined />
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

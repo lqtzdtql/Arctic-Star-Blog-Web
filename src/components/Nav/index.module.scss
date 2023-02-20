@@ -26,7 +26,7 @@
   width: 100%;
   height: $navHeight;
   background-color: $themeColor1;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 10;
@@ -36,7 +36,7 @@
     position: relative;
     width: $centerWidth;
     height: 100%;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,6 +90,15 @@
 
     .articlesBtn:hover .secondArticlesNav {
       top: 60px;
+    }
+
+    .userBtn {
+      @extend .baseBtn;
+      position: absolute;
+      right: 0;
+      font-size: 26px;
+      width: 60px;
+      cursor: pointer;
     }
 
     .navBtn {

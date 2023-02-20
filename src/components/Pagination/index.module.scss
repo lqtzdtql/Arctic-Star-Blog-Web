@@ -1,0 +1,33 @@
+@import '../../styles//base.scss';
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+
+  .pageBtn {
+    color: $textColor;
+    font-size: 14px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: $midRadius;
+    background-color: $themeColor1;
+    margin: 0 4px;
+  }
+
+  .pageBtn:hover {
+    background-color: $hoverColor;
+  }
+
+  .translucent {
+    opacity: 0.5;
+  }
+
+  .isActive {
+    background-color: $hoverColor;
+  }
+}

@@ -1,0 +1,44 @@
+@import '../../../../styles/base.scss';
+@import '../../../../styles/style.scss';
+
+.siteCard {
+  @extend .card;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .item {
+    @extend .hover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: $midRadius;
+
+    .key {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .value {
+      @extend .trans;
+      color: $hoverColor;
+      font-weight: 700;
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .item:hover .value {
+    color: #fff !important;
+  }
+}

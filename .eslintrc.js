@@ -21,7 +21,7 @@ module.exports = {
     'no-alert': 2,
     'no-undef': 2,
     'no-use-before-define': 2,
-    'react-hooks/exhaustive-deps': 2,
+    'react-hooks/exhaustive-deps': 0,
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/no-non-null-assertion': 0,
     '@typescript-eslint/no-var-requires': 0,

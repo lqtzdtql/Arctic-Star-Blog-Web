@@ -10,3 +10,17 @@
 .hover:hover {
   background-color: $hoverColor !important;
 }
+
+.card {
+  @extend .trans;
+  margin-bottom: $space;
+  border-radius: $bigRadius;
+  user-select: none;
+  background-color: $themeColor;
+  color: $textColor;
+  padding: $space;
+}
+
+.card:hover {
+  transform: scale(1.04);
+}
