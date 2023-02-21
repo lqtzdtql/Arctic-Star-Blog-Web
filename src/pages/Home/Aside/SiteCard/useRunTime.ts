@@ -10,7 +10,6 @@ export const useRunTime = () => {
     const nowTime = new Date().getTime();
     const newStartTime = new Date(startTime).getTime();
     const runTime = dayjs(nowTime).diff(dayjs(newStartTime), 'days');
-    console.log('time', runTime);
     setRunTime(runTime);
   });
 

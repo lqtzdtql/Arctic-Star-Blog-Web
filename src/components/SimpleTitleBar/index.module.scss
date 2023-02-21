@@ -1,0 +1,44 @@
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+$rightWidth: 150px;
+
+.simpleTitleBar {
+  @extend .hover;
+  display: flex;
+  background-color: $themeColor1;
+  border-radius: 20px;
+  margin-bottom: 16px;
+  padding: 0 20px;
+  overflow: hidden;
+  font-size: 22px;
+  width: 100%;
+  height: 60px;
+  user-select: none;
+  cursor: pointer;
+
+  .content {
+    width: calc(100% - #{$rightWidth});
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .rightContent {
+    width: $rightWidth;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .rightBar {
+      color: $textColor;
+      font-size: 18px;
+    }
+  }
+}
+
+.displayBar:last-child {
+  margin-bottom: 0;
+}

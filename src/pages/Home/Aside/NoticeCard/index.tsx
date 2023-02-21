@@ -21,7 +21,6 @@ const NoticeCard: React.FC = () => {
         text: res.data[0].text,
         create_at: res.data[0].create_at,
       });
-      console.log('data', res.data[0]);
     } else {
       console.log(res.data.errMsg);
     }

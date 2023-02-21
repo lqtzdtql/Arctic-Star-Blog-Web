@@ -8,6 +8,12 @@ interface getAllArticleProp {
   page: number;
 }
 
+interface getArticleByStringProp {
+  count: number;
+  page: number;
+  target: string;
+}
+
 // 获取文章总数
 export const getArticleNum = () => {
   return axios({
@@ -22,6 +28,16 @@ export const getAllArticle = (params: getAllArticleProp) => {
   return axios({
     baseURL: articleBaseUrl,
     url: '/get/allArticles',
+    method: 'get',
+    params,
+  });
+};
+
+// 模糊查询
+export const getArticleByString = (params: getArticleByStringProp) => {
+  return axios({
+    baseURL: articleBaseUrl,
+    url: '/get/articleByString',
     method: 'get',
     params,
   });

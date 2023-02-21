@@ -3,8 +3,10 @@ import { useMount, useSafeState } from 'ahooks';
 // import { useNavigate } from 'react-router-dom';
 import Pagination from '@/src/components/Pagination';
 import PostCard from './PostCard';
-import { getAllArticle, getArticleNum } from '@/src/utils/apis/article';
+import { getAllArticle } from '@/src/utils/apis/article';
 import s from './index.module.scss';
+import { useAppSelector } from '@/src/redux/hooks';
+import { pageTotal } from '@/src/redux/slices/totalSlice';
 
 interface Prop {
   setIsReady: any;
@@ -13,23 +15,14 @@ interface Prop {
 const Section: React.FC<Prop> = ({ setIsReady }) => {
   // const navigate = useNavigate();
   const [page, setPage] = useSafeState(1);
-  const [total, setTotal] = useState(0);
   const [articles, setArticles] = useSafeState<any[]>([]);
   const [isShow, setIsShow] = useSafeState(false);
+  const total = useAppSelector(pageTotal);
 
   const handlePageChange = (toPage: number) => {
     setPage(toPage);
     window.scrollTo(0, document.body.clientHeight - 80);
   };
-
-  useMount(async () => {
-    const res = await getArticleNum();
-    if (res.status >= 200 && res.status < 300) {
-      setTotal(res.data.total);
-    } else {
-      console.log(res.data.errMsg);
-    }
-  });
 
   const getArticles = async (page: number, setIsReady: any) => {
     const res = await getAllArticle({ count: 8, page });

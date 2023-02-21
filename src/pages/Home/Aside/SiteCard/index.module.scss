@@ -3,8 +3,8 @@
 
 .siteCard {
   @extend .card;
-  height: 120px;
-  width: 100%;
+  height: auto;
+  width: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,7 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 36px;
+    height: 50px;
     width: 100%;
     font-size: 18px;
     border-radius: $midRadius;
