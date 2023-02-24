@@ -1,0 +1,18 @@
+@import '../../styles/base.scss';
+
+.seriesBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between !important;
+  flex-direction: row !important;
+
+  .seriesItem {
+    width: 49%;
+    margin-bottom: calc($space / 2);
+  }
+
+  .seriesItem:nth-last-child(1),
+  .seriesItem:nth-last-child(2) {
+    margin-bottom: 0;
+  }
+}

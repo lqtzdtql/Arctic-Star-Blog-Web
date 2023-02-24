@@ -12,7 +12,7 @@ interface Props {
 
 const Pagination: React.FC<Props> = props => {
   const { currentPage, total, onChange } = props;
-  const pageNum = Math.floor(total / 8) + 1;
+  const pageNum = Math.ceil(total / 8);
   const pageBtnDataArr: number[] = [];
   const [preEllipsis, setPreEllipsis] = useSafeState('•••');
   const [nextEllipsis, setNextEllipsis] = useSafeState('•••');
@@ -38,14 +38,16 @@ const Pagination: React.FC<Props> = props => {
 
   return (
     <div className={s.pagination}>
-      <div
-        className={classNames(s.pageBtn, { [s.translucent]: currentPage === 1 })}
-        onClick={() => {
-          handlePageChange(currentPage - 1);
-        }}
-      >
-        {'<'}
-      </div>
+      {pageNum > 0 && (
+        <div
+          className={classNames(s.pageBtn, { [s.translucent]: currentPage === 1 })}
+          onClick={() => {
+            handlePageChange(currentPage - 1);
+          }}
+        >
+          {'<'}
+        </div>
+      )}
       {pageNum > 10 && currentPage > 3 && (
         <div
           className={classNames(s.pageBtn, { [s.isActive]: currentPage === 1 })}
@@ -111,14 +113,16 @@ const Pagination: React.FC<Props> = props => {
           }}
         >{`${pageNum}`}</div>
       )}
-      <div
-        className={classNames(s.pageBtn, { [s.translucent]: currentPage === pageNum })}
-        onClick={() => {
-          handlePageChange(currentPage + 1);
-        }}
-      >
-        {'>'}
-      </div>
+      {pageNum > 0 && (
+        <div
+          className={classNames(s.pageBtn, { [s.translucent]: currentPage === pageNum })}
+          onClick={() => {
+            handlePageChange(currentPage + 1);
+          }}
+        >
+          {'>'}
+        </div>
+      )}
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import s from './index.module.scss';
 import SimpleTitleBar from '@/src/components/SimpleTitleBar';
 import { useNavigate } from 'react-router-dom';
@@ -18,11 +18,11 @@ const ArticleList: React.FC<Props> = prop => {
   const navigate = useNavigate();
 
   const goToArticle = (articleId: string) => {
-    navigate(`/articles/${articleId}`);
+    navigate(`/article/${articleId}`);
   };
 
   return (
-    <Fragment>
+    <div className={s.box}>
       {articleData.length ? (
         articleData.map((item: articleType) => (
           <SimpleTitleBar
@@ -37,7 +37,7 @@ const ArticleList: React.FC<Props> = prop => {
       ) : (
         <div className={s.none}>暂无相应文章</div>
       )}
-    </Fragment>
+    </div>
   );
 };
 

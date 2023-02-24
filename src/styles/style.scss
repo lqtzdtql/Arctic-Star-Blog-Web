@@ -24,3 +24,16 @@
 .card:hover {
   transform: scale(1.04);
 }
+
+.tagBase {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: 18px;
+  user-select: none;
+  color: $textColor;
+  border-radius: 10px;
+  cursor: pointer;
+  @extend .hover;
+}

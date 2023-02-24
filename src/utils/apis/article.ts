@@ -42,3 +42,13 @@ export const getArticleByString = (params: getArticleByStringProp) => {
     params,
   });
 };
+
+// 根据id获取文章详细信息
+export const getArticleById = (params: { articleId: string }) => {
+  return axios({
+    baseURL: articleBaseUrl,
+    url: '/get/articleById',
+    method: 'get',
+    params,
+  });
+};

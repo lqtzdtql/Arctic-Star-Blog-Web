@@ -8,6 +8,9 @@ export const QQ_QRCode = 'https://i.328888.xyz/2023/02/20/XQrJN.png';
 
 export const weChatQRCode = 'https://i.328888.xyz/2023/02/20/XQI0A.png';
 
+// loading
+export const smallLoadingUrl = 'https://img.lzxjack.top/img/202203302022741.webp';
+
 // 博客运行起始日
 export const startTime = '2023-2-19 00:00:00';
 
@@ -20,3 +23,5 @@ export enum Title {
   Log = '建站日志',
   About = '关于',
 }
+
+export const myLink = 'http://localhost:3001/';

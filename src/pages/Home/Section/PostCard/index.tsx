@@ -1,6 +1,7 @@
 import React from 'react';
 import dayjs from 'dayjs';
 import s from './index.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   _id: string;
@@ -19,15 +20,16 @@ interface Props {
 
 const PostCard: React.FC<Props> = prop => {
   const { _id, title, series, tags, content, createAt } = prop;
+  const navigate = useNavigate();
 
   const jumpToArticle = (articleId: string) => {
-    console.log(1);
+    navigate(`/article/${articleId}`);
   };
   const jumpToSeries = (seriesId: string) => {
-    console.log(2);
+    navigate(`/series/${seriesId}`);
   };
   const jumpToTag = (tagId: string) => {
-    console.log(3);
+    navigate(`/tag/${tagId}`);
   };
 
   return (

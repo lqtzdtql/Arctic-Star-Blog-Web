@@ -1,24 +1,25 @@
 import React, { useRef } from 'react';
 import s from './index.module.scss';
-import { useKeyPress, useSafeState } from 'ahooks';
+import { useKeyPress } from 'ahooks';
 import { ArrowRightOutlined, RedoOutlined } from '@ant-design/icons';
 
 interface Props {
-  searchFunction: (target: string) => void;
+  searchFunction: (target: string, needToOne: boolean) => void;
+  input: string;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const Search: React.FC<Props> = prop => {
-  const { searchFunction } = prop;
+  const { searchFunction, input, setInput } = prop;
   const inputRef = useRef(null);
-  const [input, setInput] = useSafeState('');
 
   const search = () => {
-    searchFunction(input);
+    searchFunction(input, true);
   };
 
   const reset = () => {
     setInput('');
-    searchFunction('');
+    searchFunction('', true);
   };
 
   useKeyPress(13, search, {

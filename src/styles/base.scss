@@ -15,6 +15,8 @@ $space: 20px;
 
 // 按钮/字体高亮/hover
 $hoverColor: rgb(98, 164, 218);
+// 不变的颜色
+$codeOther: #c9d1d9;
 
 // color
 // 主色
@@ -27,8 +29,16 @@ $themeColor2: #8e7376;
 $themeColor3: #6b586d;
 // 字体色
 $textColor: rgb(255, 255, 255);
+// 稍微不明显的字体颜色（版权信息页）
+$textColor2: rgb(167, 167, 167);
+// 切换开关灰色
+$switchOff: rgb(77, 77, 77);
 // App背景色
 $bodyColor: rgb(0, 0, 0);
 $footerBg: rgba(0, 0, 0, 0.3);
 // placeholder
 $tip: rgb(116, 116, 116);
+// 代码块背景
+$codeBg: rgb(37, 43, 48);
+// 行内代码
+$inlineCode: rgb(29, 71, 67);

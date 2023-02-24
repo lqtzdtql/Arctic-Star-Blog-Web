@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useMount, useSafeState } from 'ahooks';
-// import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSafeState } from 'ahooks';
 import Pagination from '@/src/components/Pagination';
 import PostCard from './PostCard';
 import { getAllArticle } from '@/src/utils/apis/article';
@@ -13,7 +12,6 @@ interface Prop {
 }
 
 const Section: React.FC<Prop> = ({ setIsReady }) => {
-  // const navigate = useNavigate();
   const [page, setPage] = useSafeState(1);
   const [articles, setArticles] = useSafeState<any[]>([]);
   const [isShow, setIsShow] = useSafeState(false);

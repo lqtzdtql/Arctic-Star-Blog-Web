@@ -1,6 +1,25 @@
 @import '../../styles/base.scss';
 @import '../../styles/style.scss';
 
+.articleDetail {
+  align-items: flex-start;
+  user-select: text;
+
+  .content {
+    display: flex;
+
+    .card {
+      font-size: 18px;
+      padding: 10px;
+      margin-right: $space;
+      border-radius: 14px;
+      user-select: none;
+      background-color: $themeColor2;
+      @extend .hover;
+    }
+  }
+}
+
 .pageCard {
   @extend .card;
   width: $layoutWidth;
@@ -14,4 +33,8 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+}
+
+.pageCard:hover {
+  transform: scale(1);
 }

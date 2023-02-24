@@ -1,13 +1,10 @@
 import Layout from '@/src/components/Layout';
-import { Title } from '@/src/constant';
 import { useSafeState } from 'ahooks';
 import React, { useEffect } from 'react';
-import Search from './Search';
-import { getArticleByString } from '@/src/utils/apis/article';
-import ArticleList from './ArticleList';
 import Pagination from '@/src/components/Pagination';
-import { useAppSelector } from '@/src/redux/hooks';
-import { pageTotal } from '@/src/redux/slices/totalSlice';
+import { getArticlesInSeries } from '@/src/utils/apis/series';
+import ArticleList from '../Articles/ArticleList';
+import { useParams } from 'react-router-dom';
 
 interface articleData {
   _id: string;
@@ -15,34 +12,31 @@ interface articleData {
   create_at: number;
 }
 
-const Articles: React.FC = () => {
+const ArticlesInSeries: React.FC = () => {
   const [page, setPage] = useSafeState(1);
+  const [total, setTotal] = useSafeState(1);
+  const [name, setName] = useSafeState('');
   const [articles, setArticles] = useSafeState<articleData[]>([]);
-  const [input, setInput] = useSafeState('');
-  const total = useAppSelector(pageTotal);
-
-  const searchFunction = async (target: string, needToOne = false) => {
-    const res = await getArticleByString({ page, count: 8, target });
+  const params = useParams();
+  const getArticleDataInSeries = async (seriesId: string) => {
+    const res = await getArticlesInSeries({ seriesId });
     if (res.status >= 200 && res.status < 300) {
-      console.log(res.data);
-      needToOne && setPage(1);
-      setArticles(res.data.data);
+      setArticles(res.data.article.slice((page - 1) * 8, page * 8));
+      setName(res.data.name);
+      setTotal(res.data.article.length);
     } else {
       console.log(res.data.errMsg);
     }
   };
-
   const handlePageChange = (toPage: number) => {
     setPage(toPage);
   };
-
   useEffect(() => {
-    searchFunction(input);
+    const seriesId = params.id;
+    getArticleDataInSeries(seriesId!);
   }, [page]);
-
   return (
-    <Layout title={Title.Articles}>
-      <Search searchFunction={searchFunction} input={input} setInput={setInput} />
+    <Layout title={name}>
       <ArticleList articleData={articles} />
       <Pagination
         currentPage={page}
@@ -55,4 +49,4 @@ const Articles: React.FC = () => {
   );
 };
 
-export default Articles;
+export default ArticlesInSeries;

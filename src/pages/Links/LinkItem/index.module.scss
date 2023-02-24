@@ -1,0 +1,81 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.item {
+  width: 31.94%;
+  height: 90px;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: $space;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  background-color: $themeColor1;
+  @extend .hover;
+
+  .link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    .left {
+      width: 70px;
+      height: 70px;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $themeColor;
+
+      .avatar {
+        width: 100%;
+        height: 100%;
+      }
+
+      .loading {
+        width: 60%;
+        height: 60%;
+      }
+    }
+
+    .right {
+      width: calc(100% - 70px);
+
+      .title {
+        padding: 0 10px;
+        font-weight: 700;
+        height: 28px;
+        color: $hoverColor;
+        text-align: center;
+        overflow: hidden;
+        @extend .trans;
+      }
+
+      .des {
+        padding-left: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 42px;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        line-height: 20px;
+        color: $textColor;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.item:hover .title {
+  color: #fff !important;
+}
+
+.item:nth-last-child(1),
+.item:nth-last-child(2),
+.item:nth-last-child(3) {
+  margin-bottom: 0;
+}

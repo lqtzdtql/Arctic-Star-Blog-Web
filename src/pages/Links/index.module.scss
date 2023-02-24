@@ -1,0 +1,9 @@
+@import '../../styles/base.scss';
+@import '../../styles/style.scss';
+
+.box {
+  display: flex;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+  justify-content: space-around !important;
+}

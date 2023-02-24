@@ -11,3 +11,12 @@ export const getView = () => {
     method: 'get',
   });
 };
+
+// 增加浏览量
+export const addView = () => {
+  return axios({
+    baseURL: viewBaseUrl,
+    url: 'add',
+    method: 'get',
+  });
+};

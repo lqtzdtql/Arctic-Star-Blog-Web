@@ -1,0 +1,25 @@
+@import '../../../styles/base.scss';
+@import '../../../styles/style.scss';
+
+.seriesBar {
+  @extend .hover;
+  position: relative;
+  background-color: $themeColor1;
+  height: 50px;
+
+  border-radius: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  cursor: pointer;
+
+  .seriesNum {
+    position: absolute;
+    right: 10px;
+    width: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
