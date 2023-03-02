@@ -18,6 +18,7 @@ const ArticlesInTag = lazy(() => import('@/src/pages/ArticlesInTag'));
 const ArticleDetail = lazy(() => import('@/src/pages/ArticleDetail'));
 const Links = lazy(() => import('@/src/pages/Links'));
 const Log = lazy(() => import('@/src/pages/Log'));
+const About = lazy(() => import('@/src/pages/About'));
 
 const Main = () => {
   const dispatch = useAppDispatch();
@@ -46,6 +47,7 @@ const Main = () => {
               <Route path="/tag/:id" element={<ArticlesInTag />} />
               <Route path="/links" element={<Links />} />
               <Route path="/log" element={<Log />} />
+              <Route path="/about" element={<About />} />
             </Routes>
           </Suspense>
         </ErrorBoundary>

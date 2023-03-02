@@ -1,5 +1,4 @@
 import './hljs.custom.scss';
-
 import React from 'react';
 import hljs from 'highlight.js';
 import { marked } from 'marked';
