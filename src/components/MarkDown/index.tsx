@@ -1,10 +1,8 @@
-import './hljs.custom.scss';
 import React from 'react';
-import hljs from 'highlight.js';
-import { marked } from 'marked';
-import s from './index.module.scss';
-import classNames from 'classnames';
-
+import ReactMarkdown from 'react-markdown';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+// 设置高亮样式
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 interface Props {
   content?: string;
   className?: string;
@@ -12,24 +10,30 @@ interface Props {
 
 const MarkDown: React.FC<Props> = prop => {
   const { content, className } = prop;
-  hljs.configure({
-    classPrefix: 'hljs-',
-    languages: ['CSS', 'HTML', 'JavaScript', 'TypeScript', 'Markdown'],
-  });
-  marked.setOptions({
-    renderer: new marked.Renderer(),
-    highlight: code => hljs.highlightAuto(code).value,
-    gfm: true, // 默认为true。 允许 Git Hub标准的markdown.
-    breaks: true, // 默认为false。 允许回车换行。该选项要求 gfm 为true。
-  });
-
   return (
-    <div
-      className={classNames(s.marked, className)}
-      dangerouslySetInnerHTML={{
-        __html: marked(content || '').replace(/<pre>/g, "<pre id='hljs'>"),
+    <ReactMarkdown
+      className={className}
+      components={{
+        code({ node, inline, className, children, ...props }) {
+          const match = /language-(\w+)/.exec(className || '');
+          return !inline && match ? (
+            <SyntaxHighlighter
+              children={String(children).replace(/\n$/, '')}
+              style={vscDarkPlus as any}
+              language={match[1]}
+              PreTag="div"
+              {...props}
+            />
+          ) : (
+            <code className={className} {...props}>
+              {children}
+            </code>
+          );
+        },
       }}
-    />
+    >
+      {content || ''}
+    </ReactMarkdown>
   );
 };
 

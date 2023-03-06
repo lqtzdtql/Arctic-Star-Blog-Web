@@ -8,9 +8,79 @@ import MarkDown from '@/src/components/MarkDown';
 
 const About: React.FC = () => {
   const [state, { toggle, setLeft, setRight }] = useToggle();
-  const aboutMe = '哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈';
-  const aboutSite =
-    '1111111111111111111111111111111111111111111111111111111111111111111111111111111 111111111111111111111 111111111111111 111111111111';
+  const aboutMe = `Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  `;
+  const aboutSite = `Here is some JavaScript code:
+
+  ~~~js
+  console.log('It works!')
+  ~~~
+  `;
+
   return (
     <Layout title={Title.About} className={s.box}>
       <Switch state={state} toggle={toggle} setLeft={setLeft} setRight={setRight} />

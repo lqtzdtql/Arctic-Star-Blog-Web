@@ -45,6 +45,7 @@ const Layout: React.FC<Props> = prop => {
           <div className={s.content}>
             {tagsData?.map(item => (
               <div
+                key={item._id}
                 className={s.card}
                 onClick={() => {
                   navigate(`/tag/${item._id}`);

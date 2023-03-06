@@ -1,5 +1,5 @@
 const path = require('path');
-const { webpack } = require('webpack');
+const CompressionWebpackPlugin = require('compression-webpack-plugin');
 
 const pathResolve = pathUrl => path.join(__dirname, pathUrl);
 
@@ -35,6 +35,15 @@ module.exports = {
     alias: {
       '@/src': pathResolve('src'),
     },
+    plugins: [
+      // 生成压缩包
+      new CompressionWebpackPlugin({
+        algorithm: 'gzip',
+        test: new RegExp('\\.(' + ['js', 'css'].join('|') + ')$'),
+        threshold: 1024,
+        minRatio: 0.8,
+      }),
+    ],
     configure(webpackConfig) {
       webpackConfig.resolve.fallback = {
         ...webpackConfig.resolve.fallback,

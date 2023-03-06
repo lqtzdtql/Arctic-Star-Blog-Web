@@ -1,10 +1,10 @@
 export const siteTitle = '北极星小站';
 
-export const baseUrl = 'http://www.lqtblog.online:4000/api';
+export const baseUrl = 'http://47.115.224.227:4000/api';
 
 export const githubUrl = 'https://github.com/lqtzdtql';
 
-export const QQ_QRCode = 'https://s3.bmp.ovh/imgs/2023/03/02/911fa2259e1dafbb.png';
+export const QQ_QRCode = 'https://s3.bmp.ovh/imgs/2023/03/05/28f31c309c48378d.png';
 
 export const weChatQRCode = 'https://s3.bmp.ovh/imgs/2023/02/28/a61c71686033498c.png';
 
