@@ -1,12 +1,15 @@
+import qqImg from '../imgs/qq.png';
+import wxImg from '../imgs/wx.png';
+
 export const siteTitle = '北极星小站';
 
 export const baseUrl = 'http://47.115.224.227:4000/api';
 
 export const githubUrl = 'https://github.com/lqtzdtql';
 
-export const QQ_QRCode = 'https://s3.bmp.ovh/imgs/2023/03/05/28f31c309c48378d.png';
+export const QQ_QRCode = qqImg;
 
-export const weChatQRCode = 'https://s3.bmp.ovh/imgs/2023/02/28/a61c71686033498c.png';
+export const weChatQRCode = wxImg;
 
 // loading
 export const smallLoadingUrl = 'https://img.lzxjack.top/img/202203302022741.webp';
@@ -25,3 +28,9 @@ export enum Title {
 }
 
 export const myLink = 'http://localhost:3001/';
+
+export const icp_site = 'https://beian.miit.gov.cn/?spm=a2cmq.17630005.icp_beian.6.10eb79feltf6tC#/Integrated/index';
+
+export const icp_no = '沪ICP备2023005658号-1';
+
+export const source_github = 'https://github.com/lqtzdtql/Arctic-Star-Blog-Web';
